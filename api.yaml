@@ -1,0 +1,211 @@
+swagger: '2.0'
+info:
+  title: ERP Portal API docs
+  description : This is ERP project api docs for small organizations.
+  version: 1.0
+  contact:
+    email: 'mahimali15082001@gmail.com'
+
+  licence :
+    name: Apache 2.0
+    url: 'http://apache.org/'
+
+  servers:
+    -url: 'http://loaclhost:3000/'
+    description: This is my local server.
+
+schemes: ['http','https']
+
+
+paths:
+
+  /erp:
+    get:
+      summary : To get all employees
+      description: This API returns the list of all employees in the ERP system.
+      tags: 
+        - Employee
+      responses: 
+        200:
+          description: Success!
+          schema :
+            $ref : '#/components/schemas/Employee'   
+        400:
+          description: Failure!
+          schema :
+            $ref: '#/components/schemas/Failure'
+      
+  /erp/{id}:
+    get:
+      summary: Getting a particular employee details
+      description : This api returns a employee object representing his all info
+      tags: 
+        - Employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema :
+            type : number
+
+      responses: 
+        200:
+          description: Success!
+          schema :
+            $ref : '#/components/schemas/Employee'   
+        404:
+          description: Failure!
+          schema :
+            $ref: '#/components/schemas/Failure'
+
+    put:
+      summary: Updating a particular employee details
+      description : This api updates a employee object representing his all info
+      tags: 
+        - Employee
+      produces: 
+        - application/json
+      consumes: 
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema :
+            type : number
+        - in: body
+          name: user
+          schema:
+            $ref: '#/components/schemas/User'
+      responses: 
+        200:
+          description: Success!
+          schema :
+            $ref : '#/components/schemas/Employee'
+        400:
+          description: Failure!
+          schema :
+            $ref: '#/components/schemas/Failure'
+
+    delete:
+      summary: deleting a particular employee details
+      description : This api deletes a employee informatino from ERP system.
+      tags: 
+        - Employee
+      produces: 
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema :
+            type : number
+      responses: 
+        200:
+          description: Success!
+          schema :
+            $ref : '#/components/schemas/Employee'
+        400:
+          description: Failure!
+          schema :
+            $ref: '#/components/schemas/Failure'
+
+  /erp/create:
+    post:
+      summary: API to create user in system
+      description: This API is used to create a user in ERP system using provided data.
+      tags: 
+        - Employee
+      produces: 
+        - application/json
+      consumes: 
+        - application/json
+      parameters:
+      - in: body
+        name: user
+        schema:
+          $ref: '#/components/schemas/User'
+      responses: 
+        200:
+          description: Success!
+          schema :
+            $ref : '#/components/schemas/Employee'
+        400:
+          description: Failure!
+          schema :
+            $ref: '#/components/schemas/Failure'
+
+
+  
+  
+
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        success:
+          type: boolean 
+          example: true
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Mahesh
+            DOB:
+              type: string
+              format: date
+            skills:
+              type: array
+              items: 
+                type: string
+              example:
+                - Typescript
+                - node.js
+            DOJ:
+              type: string
+              format: date
+            level:
+              type: string
+              example: Intern
+            supervisorId:
+              type: number
+              example: 1
+    
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Mahesh
+        DOB:
+          type: string
+          format: date
+        skills: 
+          type: array
+          items: 
+            type: string
+          example:
+            - TypeScript
+            - Node.js
+        DOJ:
+          type: string
+          format: date
+        level:
+          type: string
+          example: Intern
+        supervisorId:
+          type: number
+          example: 1
+
+    Failure:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          exmaple: "Required resource not found!"
+
