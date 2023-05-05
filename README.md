@@ -19,7 +19,7 @@
 - Click on the link to see the live API and use it.
 
 ### Live Demo : 
-<a href= "https://todolistapp-ieqf.onrender.com/">Click here to see live demo</a>
+<a href= "https://nutty-belt-pig.cyclic.app/api-docs/">Click here to see live demo</a>
 
 - API Docs using Swagger UI
 
