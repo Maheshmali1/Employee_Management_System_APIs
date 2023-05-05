@@ -4,7 +4,7 @@
 
 - The employee management system is a server-side application that provides a REST API interface for managing employee data. The application is built using Node.js, a powerful server-side runtime environment, and Express.js, a flexible and minimalist web framework for Node.js.
 
-- The employee management system is a server-side application that provides a REST API interface for managing employee data. The application is built using Node.js, a powerful server-side runtime environment, and Express.js, a flexible and minimalist web framework for Node.js.
+- The application employs a range of modern technologies to ensure robustness, scalability, and maintainability. These include ESLint for code quality and consistency, Jest for testing, Swagger UI for API documentation, and JSON files as the database.
 
 - To ensure type safety and improve code readability, the application is written in TypeScript, a superset of JavaScript that adds optional static typing, among other features.
 
