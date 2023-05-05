@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
-  title: ERP Portal API docs
-  description : This is ERP project api docs for small organizations.
+  title: Employee Management Portal API docs
+  description : This is Employee Management Portal project API docs for small organizations.
   version: 1.0
   contact:
     email: 'mahimali15082001@gmail.com'
