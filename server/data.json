@@ -9,8 +9,8 @@
     ],
     "DOJ": "2023-03-01",
     "level": "developer",
-    "supervisorId": 1,
-    "empId": 2
+    "supervisorId": 2,
+    "empId": 1
   },
   {
     "name": "Ram Mude",
@@ -22,7 +22,7 @@
     ],
     "DOJ": "2023-03-01",
     "level": "manager",
-    "supervisorId": 1,
-    "empId": 1
+    "supervisorId": 2,
+    "empId": 2
   }
 ]

@@ -1,9 +1,10 @@
 import fs from 'fs';
 import config from 'config';
 import { Employee } from '../models/ERP';
+import path from 'path';
 
-const filePath = config.get('filePath');
-const DBpath = __dirname+'../../../server/'+filePath;
+const filePath:string = config.get('filePath');
+const DBpath = path.join(__dirname,'../../server/',filePath);
 
 // Function to read a json file
 export const jsonReader =async()=>{

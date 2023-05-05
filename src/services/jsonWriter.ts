@@ -3,8 +3,10 @@ import config from 'config';
 import { jsonReader } from './jsonReader';
 import { Employee } from '../models/ERP';
 
-const filePath = config.get('filePath');
-const DBpath = __dirname + '../../../server/'+filePath;
+import path from 'path';
+
+const filePath:string = config.get('filePath');
+const DBpath = path.join(__dirname,'../../server/',filePath);
 
 // Function to write to json file.
 export const jsonWriter = async (newEmpData: (Employee | Employee[]), flag: number) => {
