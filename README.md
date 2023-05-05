@@ -20,5 +20,8 @@
 
 - <a href=>Live APIs</a>
 
+- API Docs using Swagger UI
+![image](https://user-images.githubusercontent.com/56255796/236397085-2da5e229-ab5e-4a4a-b548-ae3b03ab8d67.png)
+
 
 
