@@ -15,8 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.jsonReader = void 0;
 const fs_1 = __importDefault(require("fs"));
 const config_1 = __importDefault(require("config"));
+const path_1 = __importDefault(require("path"));
 const filePath = config_1.default.get('filePath');
-const DBpath = __dirname + '../../../server/' + filePath;
+const DBpath = path_1.default.join(__dirname, '../../server/', filePath);
 // Function to read a json file
 const jsonReader = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
