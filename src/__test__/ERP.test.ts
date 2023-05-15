@@ -1,82 +1,81 @@
-import supertest, { SuperTest } from "supertest";
-import { createServer } from "../utils/server";
-import { Employee } from "../models/ERP";
-import { validator } from "../utils/validator";
+import supertest from 'supertest';
+import { createServer } from '../utils/server';
+import { validator } from '../utils/validator';
 
 const app = createServer();
 
 const newEmployee = {
-	"name": "Mahesh",
-	"DOB": "2001-09-15",
-	"skills": [
-		"node.js",
-		"typescript",
-		"Express.js"
+	'name': 'Mahesh',
+	'DOB': '2001-09-15',
+	'skills': [
+		'node.js',
+		'typescript',
+		'Express.js'
 	],
-	"DOJ": "2023-03-01",
-	"level": "intern",
-	"supervisorId": 1,
+	'DOJ': '2023-03-01',
+	'level': 'intern',
+	'supervisorId': 2,
 };
 
 const updatedEmployee = {
-	"name": "Mahesh",
-	"DOB": "2001-09-15",
-	"skills": [
-		"node.js",
-		"typescript",
-		"Express.js",
-		"Jest"
+	'name': 'Mahesh',
+	'DOB': '2001-09-15',
+	'skills': [
+		'node.js',
+		'typescript',
+		'Express.js',
+		'Jest'
 	],
-	"DOJ": "2023-03-01",
-	"level": "intern",
-	"supervisorId": 1,
+	'DOJ': '2023-03-01',
+	'level': 'intern',
+	'supervisorId': 2,
 };
 
 const SchemCheckEmployee = {
-	"name": "Mahesh",
-	"DOB": "2001-09-215",
-	"skills": [
-		"node.js",
-		"typescript",
-		"Express.js"
+	'name': 'Mahesh',
+	'DOB': '2001-09-215',
+	'skills': [
+		'node.js',
+		'typescript',
+		'Express.js'
 	],
-	"DOJ": "2023-03-01",
-	"level": "intern",
-	"supervisorId": 1,
+	'DOJ': '2023-03-01',
+	'level': 'intern',
+	'supervisorId': 2,
 };
 
 const employeeMahesh = {
-	"success": true,
-	"data": {
-		"name": "Mahesh",
-		"DOB": "2001-09-15",
-		"skills": [
-			"node.js",
-			"typescript",
-			"Express.js"
+	'success': true,
+	'data': {
+		'name': 'Mahesh',
+		'DOB': '2001-09-15',
+		'skills': [
+			'node.js',
+			'typescript',
+			'Express.js'
 		],
-		"DOJ": "2023-03-01",
-		"level": "intern",
-		"supervisorId": 1,
-		"empId": expect.any(Number)
+		'DOJ': '2023-03-01',
+		'level': 'intern',
+		'supervisorId': 2,
+		'empId': expect.any(Number)
 	}
 };
 
 const employeeMaheshUpdated = {
-	"success": true,
-	"data": {
-		"name": "Mahesh",
-		"DOB": "2001-09-15",
-		"skills": [
-			"node.js",
-			"typescript",
-			"Express.js",
+	'success': true,
+	'data': {
+		'name': 'Mahesh',
+		'DOB': '2001-09-15',
+		'skills': [
+			'node.js',
+			'typescript',
+			'Express.js',
 			'Jest'
 		],
-		"DOJ": "2023-03-01",
-		"level": "intern",
-		"supervisorId": 1,
-		"empId": expect.any(Number)
+		'DOJ': '2023-03-01',
+		'level': 'intern',
+		'supervisorId': 2,
+		'empId': expect.any(Number)
 	}
 };
 
@@ -93,14 +92,6 @@ describe('ERP APIs', () => {
 			});
 		});
         
-		describe.skip('given that creation of employee is failed due to database error.', () => {
-			it('should return 500', async () => {
-				const { body, statusCode } = await supertest(app).post('/erp/create').send(newEmployee);
-                
-				expect(statusCode).toBe(500);
-				console.log(body);
-			});
-		});
 	});
     
 	describe('get employee by Id route (GET)', () => {
@@ -115,7 +106,7 @@ describe('ERP APIs', () => {
 
 		describe('given that employee exist', () => {
 			it('should return 200 and employee data', async () => {
-				const id = 1;
+				const id = 3;
 				const { body, statusCode } = await supertest(app).get(`/erp/${id}`);
 
 				expect(statusCode).toBe(200);
@@ -128,7 +119,7 @@ describe('ERP APIs', () => {
 	describe('Update employe route (PUT)', () => {
 		describe('given that updation is successful', () => {
 			it('should return 200 with updated data of employee', async () => {
-				const id = 1;
+				const id = 3;
 				const { statusCode, body } = await supertest(app).put(`/erp/${id}`).send(updatedEmployee);
                 
 				expect(statusCode).toBe(200);
@@ -140,18 +131,9 @@ describe('ERP APIs', () => {
 		describe('given that employee does not exist', () => {
 			it('should return return 404', async () => {
 				const id = 11;
-				const { statusCode, body } = await supertest(app).put(`/erp/${id}`).send(updatedEmployee);
+				const { statusCode} = await supertest(app).put(`/erp/${id}`).send(updatedEmployee);
                 
 				expect(statusCode).toBe(404);
-			});
-		});
-
-		describe.skip('given that updation of employee is failed due to database error.', () => {
-			it('should return 500', async () => {
-				const id = 1;
-				const { body, statusCode } = await supertest(app).put(`/erp/${id}`).send(updatedEmployee);
-
-				expect(statusCode).toBe(500);
 			});
 		});
 
@@ -160,7 +142,7 @@ describe('ERP APIs', () => {
 	describe('Delete employe route (DELETE)', () => {
 		describe('given that Deletion is successful', () => {
 			it('should return 200 with deleted data of employee', async () => {
-				const id = 1;
+				const id = 3;
 				const { statusCode, body } = await supertest(app).delete(`/erp/${id}`);
 
 				expect(statusCode).toBe(200);
@@ -174,15 +156,6 @@ describe('ERP APIs', () => {
 				const { statusCode } = await supertest(app).delete(`/erp/${id}`);
 
 				expect(statusCode).toBe(404);
-			});
-		});
-
-		describe.skip('given that deletion of employee is failed due to database error.', () => {
-			it('should return 500', async () => {
-				const id = 1;
-				const { statusCode } = await supertest(app).delete(`/erp/${id}`);
-
-				expect(statusCode).toBe(500);
 			});
 		});
 

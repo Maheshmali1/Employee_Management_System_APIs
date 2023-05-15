@@ -1,10 +1,10 @@
-import { Employee,validatorResult } from "../models/ERP";
+import { Employee,validatorResult } from '../models/Employee';
 import Ajv from 'ajv';
-import addFormats from "ajv-formats";
+import addFormats from 'ajv-formats';
 const ajv = new Ajv();
 addFormats(ajv);
 
-import { employeeSchema } from '../models/ERP';
+import { employeeSchema } from '../models/EmployeeSchema';
 const validate = ajv.compile(employeeSchema);
 
 // Function to validate the employee against schema.

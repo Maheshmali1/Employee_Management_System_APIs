@@ -1,6 +1,6 @@
 [
   {
-    "name": "Mahesh Mali",
+    "name": "Aditya Patil",
     "DOB": "2001-09-15",
     "skills": [
       "node.js",
@@ -9,8 +9,8 @@
     ],
     "DOJ": "2023-03-01",
     "level": "developer",
-    "supervisorId": 2,
-    "empId": 1
+    "supervisorId": 1,
+    "empId": 2
   },
   {
     "name": "Ram Mude",
@@ -22,7 +22,7 @@
     ],
     "DOJ": "2023-03-01",
     "level": "manager",
-    "supervisorId": 2,
-    "empId": 2
+    "supervisorId": 1,
+    "empId": 1
   }
 ]

@@ -8,27 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonReader = void 0;
-const fs_1 = __importDefault(require("fs"));
-const config_1 = __importDefault(require("config"));
-const filePath = config_1.default.get('filePath');
-const DBpath = __dirname + '../../../server/' + filePath;
-// Function to read a json file
-const jsonReader = () => __awaiter(void 0, void 0, void 0, function* () {
+exports.getAllEmployees = void 0;
+const jsonReader_1 = require("../services/jsonReader");
+// Function to get all employee in ERP
+const getAllEmployees = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const data = yield fs_1.default.promises.readFile(DBpath, 'utf8');
-        if (data.length == 0) {
-            return [];
-        }
-        const Data = JSON.parse(data);
-        return Data;
+        const Data = yield (0, jsonReader_1.jsonReader)();
+        res.status(200).json({ success: true, data: Data });
     }
     catch (err) {
-        throw new Error(err);
+        next(new Error(err));
     }
 });
-exports.jsonReader = jsonReader;
+exports.getAllEmployees = getAllEmployees;

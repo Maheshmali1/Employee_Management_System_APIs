@@ -1,6 +1,7 @@
-import { Employee } from "../models/ERP";
-import { RequestHandler } from "express";
-import { jsonReader } from "../services/jsonReader";
+import { Employee } from '../models/Employee';
+import { RequestHandler } from 'express';
+import { jsonReader } from '../services/jsonReader';
+import { Level } from '../models/levels';
 
 // supervisor validation function.
 export const supervisorValidator: RequestHandler = async (req, res,next) => {
@@ -11,6 +12,7 @@ export const supervisorValidator: RequestHandler = async (req, res,next) => {
 	const newEmplevel = newEmployee.level.toLowerCase();
 
 	const data: Employee[] = await jsonReader();
+	res.locals.empData = data;
 
 	const empInd = data.findIndex(emp => emp.empId == newEmpsupervisorId);
 
@@ -20,29 +22,32 @@ export const supervisorValidator: RequestHandler = async (req, res,next) => {
 
 	const supervisorLevel = data[empInd].level;
 
-	if(newEmplevel == 'intern'){
-		if(supervisorLevel === 'developer' || supervisorLevel === 'tester'){
+	if(newEmplevel == Level.Intern){
+		if(supervisorLevel === Level.Developer || supervisorLevel === Level.Tester){
 			next();
 		}
 		else{
 			return res.status(401).send({success : false, message:'intern can have only developer or tester as supervisor. Provide valid supervisorId..'});
 		}
+         
 	}
-	else if(newEmplevel === 'developer' || newEmplevel === 'tester'){
-		if(supervisorLevel === 'manager'){
+	else if(newEmplevel === Level.Developer || newEmplevel === Level.Tester){
+		if(supervisorLevel === Level.Manager){
 			next();
 		}
 		else{
 			return res.status(401).send({success : false, message:'developer/tester can have only manager as supervisor. Provide valid supervisorId..'});
 		}
+        
 	}
-	else if(newEmplevel === 'manager'){
-		if(supervisorLevel === 'manager'){
+	else if(newEmplevel === Level.Manager){
+		if(supervisorLevel === Level.Manager){
 			next();
 		}
 		else{
 			return res.status(401).send({success : false, message:'manager can have only manager as supervisor. Provide valid supervisorId..'});
 		}
+        
 	}
 	else{
 		return res.status(401).send({success : false, message:' Provided employee level should be from intern/test/developer/manager'});
