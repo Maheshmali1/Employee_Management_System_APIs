@@ -6,8 +6,6 @@ const filePath:string = config.get('filePath');
 
 const DBpath = path.join(__dirname,'../../server/',filePath);
 
-// const DBpath = __dirname + '../../../server/'+filePath;
-
 // Function to write to json file.
 export const jsonWriter = async (newEmpData: Employee[]) => {
 	try {
