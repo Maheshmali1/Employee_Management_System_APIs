@@ -2,28 +2,76 @@
 
 # Tech stack : TypeScript | Node.js | Express.js | Swagger UI | Jest 
 
-- The employee management system is a server-side application that provides a REST API interface for managing employee data. The application is built using Node.js, a powerful server-side runtime environment, and Express.js, a flexible and minimalist web framework for Node.js.
+The Employee Management System APIs is a server-side application that provides a REST API interface for managing employee data. It is built using TypeScript, Node.js, Express.js, Swagger UI, and Jest.
 
-- The application employs a range of modern technologies to ensure robustness, scalability, and maintainability. These include ESLint for code quality and consistency, Jest for testing, Swagger UI for API documentation, and JSON files as the database.
+## Tech Stack
 
-- To ensure type safety and improve code readability, the application is written in TypeScript, a superset of JavaScript that adds optional static typing, among other features.
+- **TypeScript:** A superset of JavaScript that adds optional static typing and other features to improve code readability and maintainability.
 
-- The application follows the model-controller-services (MCS) architecture pattern. The model layer defines the structure and validation of the data. The controller layer handles HTTP requests and responses and communicates with the services layer to perform business logic. The services layer contains the application's main logic and handles data access and manipulation.
+- **Node.js:** A powerful server-side runtime environment that allows running JavaScript code outside the browser, enabling server-side applications.
 
-- The application enforces schema validation both on the request and database side to ensure proper object operations. This guarantees that the data adheres to the predefined structure and rules and prevents unexpected behavior.
+- **Express.js:** A flexible and minimalist web framework for Node.js that provides a robust set of features for building web applications and APIs.
 
-- Additionally, the application implements middleware concepts to validate employee supervisor authorization before processing sensitive operations. This ensures that only authorized users can perform these operations, adding an extra layer of security to the system.
+- **Swagger UI:** A tool that automatically generates interactive API documentation from a Swagger/OpenAPI specification, making it easier to explore and understand the API endpoints.
 
-- Overall, the employee management system is a robust and efficient application that provides a seamless employee data management experience through a user-friendly REST API interface.
+- **Jest:** A JavaScript testing framework that focuses on simplicity and provides an intuitive and powerful way to write unit tests for your code.
 
-- Click on the link to see the live API and use it.
+## Architecture
 
-### Live Demo : 
-<a href= "https://employee-management-system-apis.onrender.com/api-docs/">Click here to see live demo</a>
+The Employee Management System APIs follow the model-controller-services (MCS) architecture pattern, which helps separate concerns and improve maintainability. The application architecture consists of the following layers:
 
+1. **Model:** The model layer defines the structure and validation rules for the employee data. It ensures that the data adheres to the predefined structure and prevents unexpected behavior.
+
+2. **Controller:** The controller layer handles HTTP requests and responses, routing incoming requests to the appropriate services. It acts as the interface between the clients and the underlying business logic.
+
+3. **Services:** The services layer contains the main logic of the application. It handles data access and manipulation, performs business logic operations, and communicates with the model layer to validate and process the data.
+
+## Features
+
+The Employee Management System APIs provide the following features:
+
+- **CRUD Operations:** Create, Read, Update, and Delete operations for managing employee data.
+
+- **Schema Validation:** The application enforces schema validation both on the request and database side to ensure proper object operations. This guarantees that the data adheres to the predefined structure and rules.
+
+- **Authorization Middleware:** The application implements middleware to validate employee supervisor authorization before processing sensitive operations. This adds an extra layer of security by ensuring that only authorized users can perform these operations.
+
+## Installation
+
+To run the Employee Management System APIs locally, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/Maheshmali1/Employee_Management_System_APIs`
+2. Navigate to the project directory: `cd Employee_Management_System_APIs`
+3. Install the dependencies: `npm install`
+4. Start the application: `npm start`
+
+## Testing
+
+To run the test suite for the Employee Management System APIs, use the following command:
+
+```bash
+npm run test
+```
+
+This will execute the test cases written using Jest and provide feedback on the code's functionality and correctness.
+
+## API Documentation
+
+The Employee Management System APIs come with interactive API documentation generated by Swagger UI. To explore the APIs and interact with them, click on the link below:
+
+[API Documentation](https://employee-management-system-rest-apis.onrender.com/api-docs/)
+
+Replace `your-domain.com` with the actual domain or hostname where the APIs are hosted.
+
+## Conclusion
+
+The Employee Management System APIs provide a robust and efficient solution for managing employee data through a user-friendly REST API interface. With features such as CRUD operations, schema validation, and authorization middleware, the application ensures data integrity, security, and ease of use.
+
+Click on the [API Documentation](https://employee-management-system-rest-apis.onrender.com/api-docs/) link to see the live APIs and start using them.
+
+Thank you for choosing the Employee Management System APIs! If you have any questions or need further assistance, please don't hesitate to reach out.
 - API Docs using Swagger UI
 
 ![image](https://user-images.githubusercontent.com/56255796/236397085-2da5e229-ab5e-4a4a-b548-ae3b03ab8d67.png)
-
 
 
