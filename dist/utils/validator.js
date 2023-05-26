@@ -8,10 +8,9 @@ const ajv_1 = __importDefault(require("ajv"));
 const ajv_formats_1 = __importDefault(require("ajv-formats"));
 const ajv = new ajv_1.default();
 (0, ajv_formats_1.default)(ajv);
-const EmployeeSchema_1 = require("../models/EmployeeSchema");
-const validate = ajv.compile(EmployeeSchema_1.employeeSchema);
 // Function to validate the employee against schema.
-const validator = (employee) => {
+const validator = (employee, schema) => {
+    const validate = ajv.compile(schema);
     const match = validate(employee);
     const errors = (!match) ? validate.errors : [];
     return {

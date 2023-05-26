@@ -29,3 +29,4 @@ const jsonWriter = (newEmpData) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 exports.jsonWriter = jsonWriter;
+// Error handler reference.

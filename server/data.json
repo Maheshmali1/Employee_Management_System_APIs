@@ -1,28 +1,36 @@
-[
-  {
-    "name": "Aditya Patil",
-    "DOB": "2001-09-15",
-    "skills": [
-      "node.js",
-      "typescript",
-      "Express.js"
-    ],
-    "DOJ": "2023-03-01",
-    "level": "developer",
-    "supervisorId": 1,
-    "empId": 2
-  },
-  {
-    "name": "Ram Mude",
-    "DOB": "2001-09-15",
-    "skills": [
-      "node.js",
-      "typescript",
-      "Express.js"
-    ],
-    "DOJ": "2023-03-01",
-    "level": "manager",
-    "supervisorId": 1,
-    "empId": 1
-  }
-]
+{
+  "erp": [
+    {
+      "name": "ABC",
+      "DOB": "2001-09-15",
+      "skills": [
+        "node.js",
+        "typescript",
+        "Express.js"
+      ],
+      "DOJ": "2023-03-01",
+      "level": "developer",
+      "supervisorId": 1,
+      "empId": 2
+    },
+    {
+      "name": "XYZ",
+      "DOB": "2001-09-15",
+      "skills": [
+        "node.js",
+        "typescript",
+        "Express.js"
+      ],
+      "DOJ": "2023-03-01",
+      "level": "manager",
+      "supervisorId": 1,
+      "empId": 1
+    }
+  ],
+  "personal": [
+    
+  ],
+  "professional": [
+    
+  ]
+}

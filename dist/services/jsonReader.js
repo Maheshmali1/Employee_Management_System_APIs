@@ -22,9 +22,6 @@ const DBpath = path_1.default.join(__dirname, '../../server/', filePath);
 const jsonReader = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield fs_1.default.promises.readFile(DBpath, 'utf8');
-        if (data.length == 0) {
-            return [];
-        }
         const Data = JSON.parse(data);
         return Data;
     }

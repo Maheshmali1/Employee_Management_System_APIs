@@ -1,4 +1,4 @@
-import { createServer } from "./utils/server";
+import { createServer } from './utils';
 
 const app = createServer();
 

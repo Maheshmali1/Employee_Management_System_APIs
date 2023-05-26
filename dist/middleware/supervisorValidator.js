@@ -10,46 +10,53 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.supervisorValidator = void 0;
-const jsonReader_1 = require("../services/jsonReader");
-const levels_1 = require("../models/levels");
+const models_1 = require("../models");
+const services_1 = require("../services");
+const utils_1 = require("../utils");
 // supervisor validation function.
 const supervisorValidator = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a, _b;
     const newEmployee = req.body;
+    const validateResult = (0, utils_1.validator)(newEmployee, models_1.employeeSchema);
+    if (!validateResult.match) {
+        return res.status(422).json({ success: false, message: { schemaPath: (_a = validateResult.errors) === null || _a === void 0 ? void 0 : _a[0].schemaPath, message: (_b = validateResult.errors) === null || _b === void 0 ? void 0 : _b[0].message } });
+    }
     const newEmpsupervisorId = newEmployee.supervisorId;
     const newEmplevel = newEmployee.level.toLowerCase();
-    const data = yield (0, jsonReader_1.jsonReader)();
-    res.locals.empData = data;
-    const empInd = data.findIndex(emp => emp.empId == newEmpsupervisorId);
+    const data = yield (0, services_1.jsonReader)();
+    const empData = data.erp;
+    res.locals.data = data;
+    const empInd = empData.findIndex(emp => emp.empId == newEmpsupervisorId);
     if (empInd < 0) {
         return res.status(404).json({ success: false, message: 'Could not find supervisor with given Id' });
     }
-    const supervisorLevel = data[empInd].level;
-    if (newEmplevel == levels_1.Level.Intern) {
-        if (supervisorLevel === levels_1.Level.Developer || supervisorLevel === levels_1.Level.Tester) {
+    const supervisorLevel = empData[empInd].level;
+    if (newEmplevel == models_1.Level.Intern) {
+        if (supervisorLevel === models_1.Level.Developer || supervisorLevel === models_1.Level.Tester) {
             next();
         }
         else {
-            return res.status(401).send({ success: false, message: 'intern can have only developer or tester as supervisor. Provide valid supervisorId..' });
+            return res.status(406).send({ success: false, message: 'intern can have only developer or tester as supervisor. Provide valid supervisorId.' });
         }
     }
-    else if (newEmplevel === levels_1.Level.Developer || newEmplevel === levels_1.Level.Tester) {
-        if (supervisorLevel === levels_1.Level.Manager) {
+    else if (newEmplevel === models_1.Level.Developer || newEmplevel === models_1.Level.Tester) {
+        if (supervisorLevel === models_1.Level.Manager) {
             next();
         }
         else {
-            return res.status(401).send({ success: false, message: 'developer/tester can have only manager as supervisor. Provide valid supervisorId..' });
+            return res.status(406).send({ success: false, message: 'developer/tester can have only manager as supervisor. Provide valid supervisorId.' });
         }
     }
-    else if (newEmplevel === levels_1.Level.Manager) {
-        if (supervisorLevel === levels_1.Level.Manager) {
+    else if (newEmplevel === models_1.Level.Manager) {
+        if (supervisorLevel === models_1.Level.Manager) {
             next();
         }
         else {
-            return res.status(401).send({ success: false, message: 'manager can have only manager as supervisor. Provide valid supervisorId..' });
+            return res.status(406).send({ success: false, message: 'manager can have only manager as supervisor. Provide valid supervisorId.' });
         }
     }
     else {
-        return res.status(401).send({ success: false, message: ' Provided employee level should be from intern/test/developer/manager' });
+        return res.status(406).send({ success: false, message: 'Provided employee level should be from intern/test/developer/manager' });
     }
 });
 exports.supervisorValidator = supervisorValidator;

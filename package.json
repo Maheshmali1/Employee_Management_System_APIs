@@ -1,5 +1,5 @@
 {
-    "name": "Employee_Management_system",
+    "name": "employee_management_system",
     "version": "1.0.0",
     "description": "Employee Management system APIs to manipulate the employee data in organizations.",
     "main": "dist/app.js",
