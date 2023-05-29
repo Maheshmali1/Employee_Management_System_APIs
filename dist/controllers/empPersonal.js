@@ -14,10 +14,10 @@ const createPersonalInfo = (req, res, next) => {
     if (!validateResult.match) {
         return res.status(422).json({ success: false, message: { schemaPath: (_a = validateResult.errors) === null || _a === void 0 ? void 0 : _a[0].schemaPath, message: (_b = validateResult.errors) === null || _b === void 0 ? void 0 : _b[0].message } });
     }
-    (0, services_1.jsonReader)()
+    return (0, services_1.jsonReader)()
         .then((data) => {
         data.personal.push(personalData);
-        (0, services_1.jsonWriter)(data)
+        return (0, services_1.jsonWriter)(data)
             .then((result) => {
             if (result) {
                 return res.status(200).json({ success: true, data: personalData });
@@ -34,7 +34,7 @@ const createPersonalInfo = (req, res, next) => {
 exports.createPersonalInfo = createPersonalInfo;
 const getPersonalInfo = (req, res, next) => {
     const empId = req.params.id;
-    (0, services_1.jsonReader)()
+    return (0, services_1.jsonReader)()
         .then((data) => {
         var _a, _b;
         const personalData = data.personal;

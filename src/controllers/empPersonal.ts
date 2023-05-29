@@ -18,10 +18,10 @@ export const createPersonalInfo: RequestHandler = (req, res, next) => {
 
 
 
-	jsonReader()
+	return jsonReader()
 		.then((data:DBdata) => {
 			data.personal.push(personalData);
-			jsonWriter(data)
+			return jsonWriter(data)
 				.then((result:boolean) => {
 					if (result) {
 						return res.status(200).json({ success: true, data: personalData });
@@ -41,7 +41,7 @@ export const getPersonalInfo: RequestHandler = (req, res, next) => {
 
 	const empId: string = (req.params as { id: string }).id;
 
-	jsonReader()
+	return jsonReader()
 		.then((data:DBdata) => {
 			const personalData: PersonalInfo[] = data.personal;
 			const personalInd:number = personalData.findIndex(emp => emp.empId == parseInt(empId));
