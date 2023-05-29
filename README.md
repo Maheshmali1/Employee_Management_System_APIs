@@ -40,10 +40,26 @@ The Employee Management System APIs provide the following features:
 
 To run the Employee Management System APIs locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/Maheshmali1/Employee_Management_System_APIs`
-2. Navigate to the project directory: `cd Employee_Management_System_APIs`
-3. Install the dependencies: `npm install`
-4. Start the application: `npm start`
+1. Clone the repository:
+```bash
+git clone https://github.com/Maheshmali1/Employee_Management_System_APIs
+```
+2. Navigate to the project directory: 
+```bash
+cd Employee_Management_System_APIs
+```
+4. Install the dependencies: 
+```bash
+npm install
+```
+6. Start the application: 
+```bash
+npm start
+```
+7. Enter address to see API docs
+```bash
+http://localhost:3000/api-docs
+```
 
 ## Testing
 
@@ -61,17 +77,19 @@ The Employee Management System APIs come with interactive API documentation gene
 
 [API Documentation](https://employee-management-system-rest-apis.onrender.com/api-docs/)
 
-Replace `your-domain.com` with the actual domain or hostname where the APIs are hosted.
-
 ## Conclusion
 
 The Employee Management System APIs provide a robust and efficient solution for managing employee data through a user-friendly REST API interface. With features such as CRUD operations, schema validation, and authorization middleware, the application ensures data integrity, security, and ease of use.
 
 Click on the [API Documentation](https://employee-management-system-rest-apis.onrender.com/api-docs/) link to see the live APIs and start using them.
 
-Thank you for choosing the Employee Management System APIs! If you have any questions or need further assistance, please don't hesitate to reach out.
-- API Docs using Swagger UI
+- API Docs Images using Swagger UI
+- ![image](https://github.com/Maheshmali1/Employee_Management_System_APIs/assets/56255796/4f8e70b9-8afe-498c-8dd8-f81cd910947a)
+- ![image](https://github.com/Maheshmali1/Employee_Management_System_APIs/assets/56255796/6040ac5b-1d92-4209-8c33-c683f864bd27)
 
-![image](https://user-images.githubusercontent.com/56255796/236397085-2da5e229-ab5e-4a4a-b548-ae3b03ab8d67.png)
+Thank you for choosing the Employee Management System APIs! If you have any questions or need further assistance, please don't hesitate to reach out.
+
+
+
 
 
