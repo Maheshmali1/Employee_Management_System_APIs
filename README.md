@@ -48,15 +48,15 @@ git clone https://github.com/Maheshmali1/Employee_Management_System_APIs
 ```bash
 cd Employee_Management_System_APIs
 ```
-4. Install the dependencies: 
+3. Install the dependencies: 
 ```bash
 npm install
 ```
-6. Start the application: 
+4. Start the application: 
 ```bash
 npm start
 ```
-7. Enter address to see API docs
+5. Enter address to see API docs
 ```bash
 http://localhost:3000/api-docs
 ```
